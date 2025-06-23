@@ -1,5 +1,6 @@
 import './App.css'
-import {Outlet, Link, BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Layout from './pages/Layout'
 
 function App() {
   return (
@@ -13,21 +14,6 @@ function App() {
           <Route path="/checkout"></Route>
         </Routes>
       </BrowserRouter>
-    </>
-  )
-}
-
-const Layout = () => {
-  return (
-    <>
-      <nav>
-          <Link to="/">Home</Link>
-          <Link to="/menu">Menu</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/checkout">Check Out</Link>
-      </nav>
-      <Outlet />
     </>
   )
 }
