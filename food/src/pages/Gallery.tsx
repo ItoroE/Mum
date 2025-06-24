@@ -1,7 +1,7 @@
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 function Gal() {
-  const images: string[] = [
+  const images = [
     '/images/c.jpg',
     '/images/c2.jpg',
     '/images/e1.jpg',
