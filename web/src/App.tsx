@@ -9,8 +9,12 @@ function App() {
 
   useEffect(() => {
     fetch("http://localhost:8080/api/hello")
-    .then((res) => res.json())
+    .then((res) =>  {
+      if (!res.ok) throw new Error(`HTTP error! Status ${res.status}`);
+      return res.json();
+    })
     .then((data) => setMessage(data.message))
+    .catch((err) => setMessage(err.message))
   })
 
   return (
