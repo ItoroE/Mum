@@ -1,12 +1,17 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
+	"log"
+	"os"
 	"strconv"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/jackc/pgx/v5"
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -68,20 +73,19 @@ func add_to_cart(c *gin.Context) {
 func main() {
 	// Loading environment variables
 
-	/* err := godotenv.Load()
+	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
 	myVar := os.Getenv("PS_INFO")
 	fmt.Println("My variable:", myVar)
 
-	conn, err := pgx.Connect(context.Background(), os.Getenv("PS_INFO"))
+	conn, err := pgx.Connect(context.Background(), myVar)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
 	defer conn.Close(context.Background())
-	*/
 
 	r := gin.Default()
 	r.Use(cors.Default())
